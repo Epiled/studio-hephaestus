@@ -3,7 +3,7 @@ import EstilosGlobais from './styles/EstilosGlobais'
 import Home from './pages/Home'
 import Menu from './components/Menu'
 
-const App: React.FC = () => {
+const App = () => {
 
   return (
     <Router>
