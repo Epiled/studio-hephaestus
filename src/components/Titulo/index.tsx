@@ -1,4 +1,4 @@
-import styled, { Interpolation, css } from "styled-components";
+import styled, { css, DefaultTheme, Interpolation } from "styled-components";
 
 interface ITitulo extends ISub {
   as?: React.ElementType;
@@ -8,55 +8,60 @@ interface ITitulo extends ISub {
 
 interface ISub {
   sub?: string;
-  subStyles?: Estilos;
+  $subStyles?: Estilos;
 }
 
 type MediaQueryStyle = {
   mediaQuery: string;
-  styles: FlattenSimpleInterpolation;
+  styles: Interpolation<DefaultTheme>;
 };
 
 type Estilos = {
-    mediaQueryStyles: Interpolation<object>;
-    mediaQuery: Interpolation<object>;
-    base: Interpolation<object>;
-  }
+  base: Interpolation<DefaultTheme>;
+  mediaQueries?: MediaQueryStyle[];
+}
 
 const TituloEstilizado = styled.h2<ITitulo>`
   display: flex;
   flex-direction: column;
+  font-size: 3rem;
+  color: black;
 
-  ${(props) => props.$styles && css`
+  ${(props) => props.$styles?.base && css`
     ${props.$styles.base}
   `}
 
-  /* Adicione uma media query personalizada, se especificada */
-  ${(props) => props.$styles?.mediaQuery && css`
-    @media ${props.$styles.mediaQuery} {
-      /* Estilos específicos para a media query */
-      ${props.$styles.mediaQueryStyles}
+  ${(props) => props.$styles?.mediaQueries && props.$styles.mediaQueries.map((mqStyle) => css`
+    @media ${mqStyle.mediaQuery} {
+      ${mqStyle.styles}
     }
-  `}
+  `)}
 `;
 
-// const Sub = styled.span<ISub>`
-//   font-size: ${(props) => props.subStyles?.fontSize || "2rem"};
-//   color: ${(props) => props.subStyles?.color || "black"};
-//   text-transform: ${(props) => props.subStyles?.textTransform || "none"};
-// `
+const Sub = styled.span<ISub>`
+  ${(props) => props.$subStyles?.base && css`
+    ${props.$subStyles.base}
+  `}
 
-const Titulo = ({ as: Tag = "h2", sub, text, $styles, subStyles = {} }: ITitulo) => {
+  ${(props) => props.$subStyles?.mediaQueries && props.$subStyles.mediaQueries.map((mqStyle) => css`
+    @media ${mqStyle.mediaQuery} {
+      ${mqStyle.styles}
+    }
+  `)}
+`
+
+const Titulo = ({ as: Tag = "h2", sub, text, $styles, $subStyles }: ITitulo) => {
 
   return (
     <TituloEstilizado
       as={Tag}
       $styles={$styles}
     >
-      {/* {sub && (
-        <Sub subStyles={subStyles}>
+      {sub && (
+        <Sub $subStyles={$subStyles}>
           {sub}
         </Sub>
-      )} */}
+      )}
 
       {text && text}
 

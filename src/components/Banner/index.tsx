@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Titulo from "../Titulo";
 
 const BannerEstilizado = styled.section`
@@ -14,6 +14,28 @@ const BannerConteudo = styled.div`
   transform: translateY(-50%);
 `
 
+const TituloEstilos = {
+  base: css`
+  font-size: 6.4rem;
+  color: white;
+  text-transform: uppercase;
+`,
+  mediaQueries: [
+    {
+      mediaQuery: "(min-width: 768px)",
+      styles: css`
+    font-size: 6.4rem;
+  `,
+    },
+    {
+      mediaQuery: "(min-width: 1440px)",
+      styles: css`
+    font-size: 6.4rem;
+  `,
+    },
+  ],
+}
+
 const Banner = () => {
 
   return (
@@ -22,17 +44,7 @@ const Banner = () => {
         <Titulo
           sub="Transformamos ideias em "
           text="Obras Primas digitais"
-          $styles={{
-            base: {
-              fontSize: "6.4rem"
-            },
-            mediaQuery: "(min-width: 768px)",
-            mediaQueryStyles: {
-              fontSize: "10rem",
-              color: "green",
-              // Adicione outras propriedades conforme necessário
-            },
-          }}
+          $styles={TituloEstilos}
         />
       </BannerConteudo>
     </BannerEstilizado>
