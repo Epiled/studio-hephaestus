@@ -1,4 +1,5 @@
-import styled, { css, DefaultTheme, Interpolation } from "styled-components";
+import styled, { css } from "styled-components";
+import Estilos from "../../types/Estilos";
 
 interface ITitulo extends ISub {
   as?: React.ElementType;
@@ -11,25 +12,23 @@ interface ISub {
   $subStyles?: Estilos;
 }
 
-type MediaQueryStyle = {
-  mediaQuery: string;
-  styles: Interpolation<DefaultTheme>;
-};
-
-type Estilos = {
-  base: Interpolation<DefaultTheme>;
-  mediaQueries?: MediaQueryStyle[];
-}
-
 const TituloEstilizado = styled.h2<ITitulo>`
   display: flex;
   flex-direction: column;
-  font-size: 3rem;
+  font-size: 2.4rem;
   color: black;
 
   ${(props) => props.$styles?.base && css`
     ${props.$styles.base}
   `}
+
+  @media screen and (min-width: 768px) {
+    font-size: 3.6rem
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: 4.8rem
+  }
 
   ${(props) => props.$styles?.mediaQueries && props.$styles.mediaQueries.map((mqStyle) => css`
     @media ${mqStyle.mediaQuery} {
@@ -39,9 +38,19 @@ const TituloEstilizado = styled.h2<ITitulo>`
 `;
 
 const Sub = styled.span<ISub>`
+  font-size: 1.2rem;
+
   ${(props) => props.$subStyles?.base && css`
     ${props.$subStyles.base}
   `}
+
+  @media screen and (min-width: 768px) {
+    font-size: 2.2rem;
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: 3.2rem;
+  }
 
   ${(props) => props.$subStyles?.mediaQueries && props.$subStyles.mediaQueries.map((mqStyle) => css`
     @media ${mqStyle.mediaQuery} {

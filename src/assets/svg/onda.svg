@@ -1,0 +1,23 @@
+<svg width="100%" height="132" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Define o conteúdo original do seu SVG como um símbolo -->
+  <symbol id="originalSvg" viewBox="0 0 1440 132">
+    <!-- ... Seu conteúdo SVG original aqui ... -->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 86.2387V0H1440V86.1278C1416.57 81.8018 1391.73 78.9918 1365.11 78.9918C1306.47 78.9918 1254.75 92.3725 1203.28 105.689C1153.29 118.622 1103.53 131.494 1047.91 131.986C997.949 132.429 957.465 122.104 911.784 110.455C854.224 95.7755 788.412 78.9918 684.997 78.9918C588.626 78.9918 535.068 93.2973 483.606 107.043C436.019 119.754 390.224 131.986 314.024 131.986C229.139 131.986 155.419 116.807 86.889 102.696C57.1095 96.5638 28.3099 90.6337 0 86.2387Z" fill="url(#paint0_linear_140_441)" />
+    <defs>
+      <linearGradient id="paint0_linear_140_441" x1="0" y1="132" x2="1126.96" y2="132" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FF6006" />
+        <stop offset="1" stop-color="#FF7E06" />
+      </linearGradient>
+    </defs>
+  </symbol>
+
+  <!-- Define um padrão com o conteúdo do seu SVG -->
+  <defs>
+    <pattern id="repeatingPattern" width="100%" height="100%">
+      <use xlink:href="#originalSvg" />
+    </pattern>
+  </defs>
+
+  <!-- Usa o padrão para preencher um retângulo que cobre a largura total da tela -->
+  <rect width="100%" height="132" fill="url(#repeatingPattern)" />
+</svg>

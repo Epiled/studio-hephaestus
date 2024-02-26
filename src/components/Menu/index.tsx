@@ -9,6 +9,7 @@ const MenuBotao = styled.div`
   position: fixed;
   top: 3.5rem;
   right: 5rem;
+  z-index: 5;
 `
 
 const Menu = () => {
