@@ -18,7 +18,7 @@ const TextoEstilizado = styled.p<ITexto>`
     font-size: 2rem;
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1440px) {
     font-size: 2.4rem;
   }
 

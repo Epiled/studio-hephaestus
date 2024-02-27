@@ -26,7 +26,7 @@ const TituloEstilizado = styled.h2<ITitulo>`
     font-size: 3.6rem
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1440px) {
     font-size: 4.8rem
   }
 
@@ -48,7 +48,7 @@ const Sub = styled.span<ISub>`
     font-size: 2.2rem;
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1440px) {
     font-size: 3.2rem;
   }
 

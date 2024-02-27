@@ -33,7 +33,7 @@ const Wrapper = styled.div`
     width: calc(100vw - 7.5rem);
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1440px) {
     width: calc(100vw - 10rem);
   }
 `
@@ -52,7 +52,7 @@ const BannerConteudo = styled(Wrapper)`
     max-width: 80rem;
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1440px) {
     gap: 3rem;
     left: 15%;
     transform: translate(0, -50%);
@@ -68,7 +68,7 @@ const TituloEstilos = {
     {
       mediaQuery: "(min-width: 768px)",
       styles: css`
-        font-size:4.8rem;
+        font-size: 4.8rem;
       `,
     },
     {
@@ -100,6 +100,7 @@ const Banner = () => {
   return (
     <BannerEstilizado>
       <BannerConteudo>
+
         <Titulo
           sub="Transformamos ideias em "
           text="Obras Primas digitais"

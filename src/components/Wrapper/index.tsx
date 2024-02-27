@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 const WrapperEstilizado = styled.div`
   width: calc(100vw - 5rem);
+  margin: 0 auto;
 
   @media screen and (min-width: 768px) {
     width: calc(100vw - 7.5rem);
