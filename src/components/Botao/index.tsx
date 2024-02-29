@@ -57,7 +57,7 @@ const BotaoConteudo = styled.div<IBotao>`
 
 interface IBotao {
   text?: string,
-  iconLeft?: 'menu',
+  iconLeft?: 'menu' | 'leftArrow' | 'rightArrow' |'circle',
   iconRight?: 'menu',
   iconLeftShow?: boolean,
   iconRightShow?: boolean,
@@ -71,9 +71,9 @@ interface IBotao {
 
 const IconsMap = {
   'menu': IconMenu,
-  'leftArrow': IconMenu,
-  'rightArrow': IconMenu,
-  'circle': IconMenu,
+  'leftArrow': IconArrowLeft,
+  'rightArrow': IconArrowRight,
+  'circle': IconEllipse,
 
 }
 
