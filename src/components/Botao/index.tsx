@@ -88,7 +88,7 @@ const Botao = ({ text, iconLeft, iconRight, iconLeftShow, iconRightShow, $fontSi
 
     if (parentOffset && circuloAnimate) {
       const relX = e.pageX - parentOffset.left;
-      const relY = e.pageY - parentOffset.top;
+      const relY = e.clientY - parentOffset.top;
       const larguraElemtno = parentOffset.width * 2;
 
       circuloAnimate.style.top = `${relY}px`;
