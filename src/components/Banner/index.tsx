@@ -54,7 +54,7 @@ const BannerConteudo = styled(Wrapper)`
 
   @media screen and (min-width: 1440px) {
     gap: 3rem;
-    left: 15%;
+    left: 15rem;
     transform: translate(0, -50%);
   }
 `
@@ -80,16 +80,35 @@ const TituloEstilos = {
   ],
 }
 
+const SubTitleStyle = {
+  mediaQueries: [
+    {
+      mediaQuery: "(min-width: 1440px)",
+      styles: css`
+        font-size: 3.6rem;
+      `,
+    },
+  ]
+}
+
 const TextoEstilos = {
   base: css`
     color: white;
     font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
   `,
   mediaQueries: [
     {
       mediaQuery: "(min-width: 768px)",
       styles: css`
         font-size: 2rem;
+      `,
+    },
+    {
+      mediaQuery: "(min-width: 1440px)",
+      styles: css`
+        font-size: 2.4rem;
       `,
     },
   ],
@@ -105,6 +124,7 @@ const Banner = () => {
           sub="Transformamos ideias em "
           text="Obras Primas digitais"
           $styles={TituloEstilos}
+          $subStyles={SubTitleStyle}
         />
         <Texto
           text="Somos um estúdio de especializado em criar websites de alto desempenho e soluções sob medida. Cada projeto é único, assim como nossos clientes."

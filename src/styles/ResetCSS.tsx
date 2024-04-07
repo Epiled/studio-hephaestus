@@ -53,6 +53,14 @@ const ResetCSS: React.FC = createGlobalStyle`
     font-family: "Mada", sans-serif;
     box-sizing: border-box;
   }
+
+  @media screen and (min-width: 1440px) {
+    * {
+     // font-size: .75vw;
+    }
+  }
+
 `
+
 
 export default ResetCSS;
