@@ -49,14 +49,16 @@ const ResetCSS: React.FC = createGlobalStyle`
     border-spacing: 0;
   }
   * {
-    font-size: 62.5%;
     font-family: "Mada", sans-serif;
     box-sizing: border-box;
   }
+  :root {
+    font-size: 62.5%;
+  }
 
   @media screen and (min-width: 1440px) {
-    * {
-     // font-size: .75vw;
+    :root {
+      font-size: .7142vw;
     }
   }
 

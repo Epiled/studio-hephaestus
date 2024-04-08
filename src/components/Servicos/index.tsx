@@ -23,7 +23,6 @@ const Servico = styled.section`
 `
 
 const ServicoAlt = styled(Servico)`
-
   @media screen and (min-width: 768px) {
     flex-direction: row-reverse;
   }
@@ -32,10 +31,8 @@ const ServicoAlt = styled(Servico)`
 const ServicoConteudo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 
   @media screen and (min-width: 768px) {
-    gap: 2rem;
     flex: 1;
     max-width: 65rem;
   }
@@ -45,7 +42,9 @@ const ServicoConteudo = styled.div`
   }
 `
 
-const TextosContainer = styled(ServicoConteudo)``
+const TextosContainer = styled(ServicoConteudo)`
+  gap: 2rem;
+`
 
 const Imagem = styled.img`
   width: 100%;
@@ -109,7 +108,6 @@ const SubEstilosAlt = {
 const TextoEstilos = {
   base: css`
   color: #333333;
-  font-size: 1.6rem;
 `,
   mediaQueries: [
     {

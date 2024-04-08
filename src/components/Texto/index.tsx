@@ -7,7 +7,7 @@ interface ITexto {
 }
 
 const TextoEstilizado = styled.p<ITexto>`
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: black;
 
   ${(props) => props.$styles?.base && css`
@@ -19,7 +19,7 @@ const TextoEstilizado = styled.p<ITexto>`
   }
 
   @media screen and (min-width: 1440px) {
-    font-size: 2.4rem;
+    font-size: 3.2rem;
   }
 
   ${(props) => props.$styles?.mediaQueries && props.$styles.mediaQueries.map((mqStyle) => css`

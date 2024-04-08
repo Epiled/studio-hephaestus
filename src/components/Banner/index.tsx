@@ -1,10 +1,9 @@
 import styled, { css } from "styled-components";
 import Titulo from "../Titulo";
 import Texto from "../Texto";
-import onda from "../../assets/svg/onda.svg";
-import onda2 from "../../assets/svg/onda2.svg";
+//import onda from "../../assets/svg/onda.svg";
+//import onda2 from "../../assets/svg/onda2.svg";
 import onda3 from "../../assets/svg/onda3.svg";
-
 
 const BannerEstilizado = styled.section`
   background-image: linear-gradient(90deg, #FF6006 0%, #FF7E06 80% 100%);
@@ -41,19 +40,17 @@ const Wrapper = styled.div`
 const BannerConteudo = styled(Wrapper)`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 3rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
   @media screen and (min-width: 768px) {
-    gap: 2rem;
     max-width: 80rem;
   }
 
   @media screen and (min-width: 1440px) {
-    gap: 3rem;
     left: 15rem;
     transform: translate(0, -50%);
   }
@@ -61,8 +58,10 @@ const BannerConteudo = styled(Wrapper)`
 
 const TituloEstilos = {
   base: css`
-    color: white;
+    color: var(--lighter);
     text-transform: uppercase;
+    font-size: 3.6rem;
+    margin-bottom: 0;
   `,
   mediaQueries: [
     {
@@ -81,6 +80,9 @@ const TituloEstilos = {
 }
 
 const SubTitleStyle = {
+  base: css`
+    font-size: 2.4rem;
+  `,
   mediaQueries: [
     {
       mediaQuery: "(min-width: 1440px)",
@@ -93,18 +95,13 @@ const SubTitleStyle = {
 
 const TextoEstilos = {
   base: css`
-    color: white;
-    font-size: 1.6rem;
+    color: var(--lighter);
+    font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
+    line-height: 3rem;
   `,
   mediaQueries: [
-    {
-      mediaQuery: "(min-width: 768px)",
-      styles: css`
-        font-size: 2rem;
-      `,
-    },
     {
       mediaQuery: "(min-width: 1440px)",
       styles: css`

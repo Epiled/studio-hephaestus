@@ -15,8 +15,9 @@ interface ISub {
 const TituloEstilizado = styled.h2<ITitulo>`
   display: flex;
   flex-direction: column;
-  font-size: 2.4rem;
-  color: black;
+  font-size: 3.2rem;
+  gap: 1rem;
+  margin-bottom: 3rem;
 
   ${(props) => props.$styles?.base && css`
     ${props.$styles.base}
@@ -38,15 +39,11 @@ const TituloEstilizado = styled.h2<ITitulo>`
 `;
 
 const Sub = styled.span<ISub>`
-  font-size: 1.2rem;
+  font-size: 2rem;
 
   ${(props) => props.$subStyles?.base && css`
     ${props.$subStyles.base}
   `}
-
-  @media screen and (min-width: 768px) {
-    font-size: 2.2rem;
-  }
 
   @media screen and (min-width: 1440px) {
     font-size: 3.2rem;
