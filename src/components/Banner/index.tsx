@@ -6,7 +6,7 @@ import Texto from "../Texto";
 import onda3 from "../../assets/svg/onda3.svg";
 
 const BannerEstilizado = styled.section`
-  background-image: linear-gradient(90deg, #FF6006 0%, #FF7E06 80% 100%);
+  background-image: linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
   position: relative;
   min-height: 60rem;
 
@@ -17,7 +17,7 @@ const BannerEstilizado = styled.section`
     position: absolute;
     background-image: 
       url(${onda3}),
-      linear-gradient(90deg, #FF6006 0%, #FF7E06 80% 100%);
+      linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
     background-position: bottom;
     background-repeat: repeat-x;
     height: 6.8rem;

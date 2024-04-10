@@ -12,7 +12,7 @@ const Circle = styled.span`
   width: 0rem;
   height: 0rem;
   border-radius: 50%;
-  background-color: #000000;
+  background-color: var(--darker);
   transform: translate(-50%, -50%);
   transition: width .5s ease-in-out, height .5s ease-in-out;
   z-index: 0;
@@ -32,7 +32,7 @@ const BotaoEstilizado = styled.button<IBotao>`
   transition: color .5s ease-in-out;
 
   &:hover {
-    color: white;
+    color: var(--lighter);
     cursor: pointer;
 
     ${Circle} {
@@ -40,7 +40,7 @@ const BotaoEstilizado = styled.button<IBotao>`
     }
 
     ${StyledIcon} {
-      fill: #ffffff;
+      fill: var(--lighter);
     }
   }
 `

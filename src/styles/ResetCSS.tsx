@@ -30,8 +30,13 @@ const ResetCSS: React.FC = createGlobalStyle`
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
-  body {
+  html, body {
     line-height: 1;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  body {
+    overflow-y: clip;
   }
   ol, ul {
     list-style: none;
