@@ -156,10 +156,7 @@ const Projetos = () => {
 
       <Topo
         onPrevClick={() => swiperRef.current?.swiper?.slidePrev()}
-        onNextClick={() => {
-          console.log(swiperRef.current?.swiper?.slideNext())
-          swiperRef.current?.swiper?.slideNext()}
-        }
+        onNextClick={() => swiperRef.current?.swiper?.slideNext()}
       />
 
       <SwiperCustom

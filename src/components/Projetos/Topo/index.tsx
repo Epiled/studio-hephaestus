@@ -1,8 +1,10 @@
 import styled from "styled-components"
 import Wrapper from "../../Wrapper";
 import IconEllipse from "../../../assets/svg/ellipse.svg?react";
-import IconArrowRight from "../../../assets/svg/arrowLeft.svg?react";
-import IconArrowLeft from "../../../assets/svg/arrowRight.svg?react";
+import Botao from "../../Botao";
+import SpecialButton from "./SpecialButton";
+import BotaoTeste from "./BaseButton";
+import ButtonWithArrow from "../../ButtonWithArrow";
 
 const ContainerTopo = styled.div`
   background-image: linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
@@ -55,23 +57,21 @@ const Botoes = styled.div`
 `
 
 const BotaoLeft = styled.button`
-display: flex;
-justify-content: center;
-align-items: center;
-min-width: 5rem;
-min-height: 5rem;
-border-radius: 5rem;
-outline: 0;
-border: 0;
-cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 5rem;
+  min-height: 5rem;
+  border-radius: 5rem;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
 
-@media screen and (min-width: 1440px) {
-  min-width: 10rem;
-  min-height: 10rem;
-}
+  @media screen and (min-width: 1440px) {
+    min-width: 10rem;
+    min-height: 10rem;
+  }
 `
-
-const BotaoRight = styled(BotaoLeft)``
 
 const BotaoMenu = styled(BotaoLeft)`
   display: flex;
@@ -86,28 +86,13 @@ const BotaoMenu = styled(BotaoLeft)`
   }
 `
 
-const ArrowRight = styled(IconArrowRight)`
- height: 2rem;
-
-  @media screen and (min-width: 1440px) {
-    height: 4rem;
-  }
-`
-
-const ArrowLeft = styled(IconArrowLeft)`
-  height: 2rem;
-
-  @media screen and (min-width: 1440px) {
-    height: 4rem;
-  }
-`
-
 interface IBotoesSwiper {
   onPrevClick: () => void,
   onNextClick: () => void,
 }
 
-const Topo = ({onPrevClick, onNextClick}: IBotoesSwiper) => {
+const Topo = ({ onPrevClick, onNextClick }: IBotoesSwiper) => {
+
   return (
     <ContainerTopo>
       <Wrapper>
@@ -116,20 +101,13 @@ const Topo = ({onPrevClick, onNextClick}: IBotoesSwiper) => {
             <SubTitulo>Obras primas: </SubTitulo>
             Explore nossa coleção de projetos excepcionais.
           </Titulo>
+          
           <Botoes>
-            <BotaoMenu>
-              <IconEllipse />
-              Ver Todos
-            </BotaoMenu>
-
-            <BotaoLeft onClick={onPrevClick}>
-              <ArrowLeft />
-            </BotaoLeft>
-            <BotaoRight onClick={onNextClick}>
-              <ArrowRight />
-            </BotaoRight>
-
+            <ButtonWithArrow  text="Ver Todos" />
+            <Botao iconLeft='leftArrow' aspect onClick={onPrevClick} />
+            <Botao iconRight='rightArrow' aspect onClick={onNextClick} />
           </Botoes>
+
         </TopoStyled>
       </Wrapper>
     </ContainerTopo>
