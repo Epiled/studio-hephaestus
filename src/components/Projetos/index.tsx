@@ -11,9 +11,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import CirculoSVG from "../CirculoSVG";
+import onda3 from "../../assets/svg/onda3.svg";
 
-const ProjetosEstilizados = styled.section`
-`
+const ProjetosEstilizados = styled.section``
 
 const ContainerBottom = styled.div`
   margin-top: 6rem;
@@ -73,6 +74,7 @@ const ProjectMoldura = styled.div`
   box-shadow: 0 0 .5rem .3rem #00000038;
   padding: 1rem;
   border-radius: 1rem;
+  background-color: var(--lighter);
 `
 
 const ProjectImage = styled.img`
@@ -101,6 +103,22 @@ const NameType = styled.h3`
 
 const SwiperCustom = styled(Swiper)`
   overflow: visible;
+  position: relative;
+
+  &::before {
+    content: '';
+    top: 0%;
+    left: 0;
+    position: absolute;
+    background-image: 
+      url(${onda3}),
+      linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    height: 6.8rem;
+    width: 100%;
+    height: 50%;
+  }
 `
 
 const SwiperSlideCustom = styled(SwiperSlide)`
@@ -185,7 +203,7 @@ const Projetos = () => {
                 <ProjectLabels>
                   <CategoryName>{project.category} - {project.name}</CategoryName>
                   <NameType>
-                    {idActive === project.id && "0 - "}
+                    {idActive === project.id && <CirculoSVG />}
                     {project.shortName} - {project.category}
                   </NameType>
                 </ProjectLabels>

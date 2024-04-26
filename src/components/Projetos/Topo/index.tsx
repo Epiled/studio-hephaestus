@@ -13,7 +13,7 @@ const ContainerTopo = styled.div`
 const TopoStyled = styled.div`
   padding-top: 10rem;
   padding-bottom: 5rem;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
