@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useRef, useState } from "react";
 import StyledIcon from "../StyledIcon";
 import IconArrowRight from "../../assets/svg/arrowRight.svg?react";
+import Estilos from "../../types/Estilos";
 
 interface IBotao {
   text?: string,
@@ -15,6 +16,8 @@ interface IBotao {
   $gap?: string,
   aspect?: boolean,
   onClick?: () => void,
+  $styles?: Estilos;
+
 }
 
 const StyledIconCustom = styled(StyledIcon)`
@@ -68,6 +71,10 @@ const BotaoEstilizado = styled.button<IBotao>`
   transition: color .5s ease-in-out;
   aspect-ratio: ${(props) => props.aspect ? 1 / 1 : "auto"};
 
+  ${(props) => props.$styles?.base && css`
+    ${props.$styles.base}
+  `}
+
   &:hover {
     color: var(--lighter);
     cursor: pointer;
@@ -90,7 +97,7 @@ const BotaoEstilizado = styled.button<IBotao>`
   }
 `
 
-const ButtonWithArrow = ({ text, $fontSize, $gap, onClick }: IBotao) => {
+const ButtonWithArrow = ({ text, $fontSize, $gap, onClick, $styles }: IBotao) => {
 
   const botao = useRef<HTMLButtonElement | null>(null);
   const circulo = useRef<HTMLSpanElement | null>(null);
@@ -126,6 +133,7 @@ const ButtonWithArrow = ({ text, $fontSize, $gap, onClick }: IBotao) => {
       onMouseLeave={() => hiddenPoint()}
       $fontSize={$fontSize}
       onClick={onClick}
+      $styles={$styles}
     >
       <BotaoConteudo
         $gap={$gap}

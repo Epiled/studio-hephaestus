@@ -103,7 +103,7 @@ const Topo = ({ onPrevClick, onNextClick }: IBotoesSwiper) => {
           </Titulo>
           
           <Botoes>
-            <ButtonWithArrow  text="Ver Todos" />
+            <ButtonWithArrow text="Ver Todos" />
             <Botao iconLeft='leftArrow' aspect onClick={onPrevClick} />
             <Botao iconRight='rightArrow' aspect onClick={onNextClick} />
           </Botoes>
