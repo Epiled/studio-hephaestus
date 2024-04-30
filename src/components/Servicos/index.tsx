@@ -129,19 +129,12 @@ const TextoEstilos = {
   ],
 }
 
-const defaultOptions = {
-  loop: true,
-  autoplay: true, 
-  animationData: animationData,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice'
-  }
-};
+
 
 const Servicos = () => {
   return (
     <ServicosEstilizados>
-      {/* <Lottie animationData={walk} /> */}
+      <Lottie animationData={walk} />
       <Wrapper>
         <Servico>
           <ServicoConteudo>

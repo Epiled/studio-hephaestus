@@ -63,43 +63,18 @@ const LinkStyled = styled.a`
   cursor: pointer;
 `
 
-const Contact = styled.div`
-  position: fixed;
-  top: 27.5rem;
-  right: 2.5rem;
-  border-radius: 1.5rem;
-  background: var(--lighter);
-  padding: 2rem;
-  min-width: 30rem;
-  display: flex;
-  flex-direction: column;
-  z-index: 5;
-
-  @media screen and (min-width: 768px) {
-    right: 3.75rem;
-  }
-
-  @media screen and (min-width: 1440px) {
-    right: 5rem;
-  }
-`
-
 const Menu = () => {
 
   const revelMenu = () => {
     const current = menuRef.current;
     if(current) {
-      if(current.dataset.revel == "false") {
-        current.dataset.revel = true;
-        current.style.display = "block";
-      } else {
-        current.dataset.revel = false;
-        current.style.display = "none";
-      }
+      const isRevealed = current.dataset.reveal === "true";
+      current.dataset.reveal = String(!isRevealed);
+      current.style.display = isRevealed ? "none" : "block";
     }
   }
 
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   return (
     <MenuEstilizado>
@@ -118,11 +93,6 @@ const Menu = () => {
         <LinkStyled>Contato</LinkStyled>
       </Navegation>
 
-      {/* <Contact>
-        <LinkStyled>Sobre</LinkStyled>
-        <LinkStyled>Projetos</LinkStyled>
-        <LinkStyled>Contato</LinkStyled>
-      </Contact> */}
     </MenuEstilizado>
   );
 }

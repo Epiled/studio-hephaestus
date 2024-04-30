@@ -1,9 +1,6 @@
 import styled from "styled-components"
 import Wrapper from "../../Wrapper";
-import IconEllipse from "../../../assets/svg/ellipse.svg?react";
 import Botao from "../../Botao";
-import SpecialButton from "./SpecialButton";
-import BotaoTeste from "./BaseButton";
 import ButtonWithArrow from "../../ButtonWithArrow";
 
 const ContainerTopo = styled.div`
@@ -70,19 +67,6 @@ const BotaoLeft = styled.button`
   @media screen and (min-width: 1440px) {
     min-width: 10rem;
     min-height: 10rem;
-  }
-`
-
-const BotaoMenu = styled(BotaoLeft)`
-  display: flex;
-  gap: 1rem;
-  font-size: 1.6rem;
-  padding: 0 2rem;
-
-  @media screen and (min-width: 1440px) {
-    gap: 2rem;
-    font-size: 3.6rem;
-    padding: 0 4rem;
   }
 `
 
