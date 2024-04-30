@@ -129,7 +129,7 @@ const ButtonWithArrow = ({ text, $fontSize, $gap, onClick, $styles }: IBotao) =>
   return (
     <BotaoEstilizado
       ref={botao}
-      onMouseEnter={(e) => revelPoint(e)}
+      onMouseEnter={() => revelPoint()}
       onMouseLeave={() => hiddenPoint()}
       $fontSize={$fontSize}
       onClick={onClick}

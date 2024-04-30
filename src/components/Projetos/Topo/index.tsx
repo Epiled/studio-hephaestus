@@ -10,7 +10,6 @@ const ContainerTopo = styled.div`
 const TopoStyled = styled.div`
   padding-top: 10rem;
   padding-bottom: 5rem;
-  /* margin-bottom: 5rem; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,23 +49,6 @@ const Botoes = styled.div`
   @media screen and (min-width: 1440px) {
     gap: 1rem;
     justify-content: flex-start;
-  }
-`
-
-const BotaoLeft = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 5rem;
-  min-height: 5rem;
-  border-radius: 5rem;
-  outline: 0;
-  border: 0;
-  cursor: pointer;
-
-  @media screen and (min-width: 1440px) {
-    min-width: 10rem;
-    min-height: 10rem;
   }
 `
 
