@@ -4,9 +4,7 @@ import Texto from "../Texto";
 import Wrapper from "../Wrapper";
 import imagem from "../../assets/imagem.png"
 import Lottie from "lottie-react";
-import animationData from '../../db/data.json';
 import walk from '../../db/walk.json';
-
 
 const ServicosEstilizados = styled.div`
   margin-top: 25rem;
