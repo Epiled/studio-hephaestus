@@ -30,7 +30,7 @@ const BotaoEstilizado = styled.button<IBotao>`
   padding-bottom: ${(props) => props.$fontSize || "2rem"};
   padding-left: ${(props) => props.$fontSize || "2rem"};
   transition: color .5s ease-in-out;
-  aspect-ratio: ${(props) => props.aspect ? 1 / 1 : "none"};
+  aspect-ratio: ${(props) => props.aspect ? 1 / 1 : "initial"};
 
   &:hover {
     color: var(--lighter);

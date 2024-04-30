@@ -80,7 +80,7 @@ const ProjectMoldura = styled.div`
 const ProjectImage = styled.img`
   width: 100%;
   height: 43.6rem;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
 `
 
 const ProjectLabels = styled.div`
@@ -99,6 +99,8 @@ const CategoryName = styled.span`
 const NameType = styled.h3`
   font-size: 2rem;
   font-weight: 800;
+  display: flex;
+  align-items: center;
 `
 
 const SwiperCustom = styled(Swiper)`
