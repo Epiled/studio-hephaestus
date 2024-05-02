@@ -40,6 +40,15 @@ const Animacoes: React.FC = createGlobalStyle`
     }
   }
 
+  @keyframes pathRevel {
+    from {
+      stroke-dashoffset: 2691;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
   @keyframes scrollMaskHorizontal {
     0% {
       -webkit-mask-position-x: 0%;

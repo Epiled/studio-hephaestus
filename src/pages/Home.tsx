@@ -3,8 +3,10 @@ import Contato from "../components/Contato";
 import Projetos from "../components/Projetos";
 import Rodape from "../components/Rodape";
 import Servicos from "../components/Servicos";
-
+import Lottie from "lottie-react";
+import walk from '../db/walk.json';
 const Home = () => {
+
   return (
     <>
       <Banner />
@@ -12,6 +14,7 @@ const Home = () => {
       <Projetos />
       <Contato />
       <Rodape />
+      <Lottie animationData={walk} />
     </>
   );
 }

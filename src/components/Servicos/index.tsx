@@ -3,11 +3,11 @@ import Titulo from "../Titulo";
 import Texto from "../Texto";
 import Wrapper from "../Wrapper";
 import imagem from "../../assets/imagem.png"
-import Lottie from "lottie-react";
-import walk from '../../db/walk.json';
+import PathBackground from "../PathBackground";
 
 const ServicosEstilizados = styled.div`
   margin-top: 25rem;
+  position: relative;
 `
 
 const Servico = styled.section`
@@ -132,7 +132,6 @@ const TextoEstilos = {
 const Servicos = () => {
   return (
     <ServicosEstilizados>
-      <Lottie animationData={walk} />
       <Wrapper>
         <Servico>
           <ServicoConteudo>
@@ -174,6 +173,7 @@ const Servicos = () => {
           <Imagem src={imagem} />
         </ServicoAlt>
       </Wrapper>
+      <PathBackground />
     </ServicosEstilizados>
   );
 }

@@ -28,11 +28,6 @@ const BannerEstilizado = styled.section`
     width: 100%;
 
     animation: scrollWave 5s infinite linear forwards;
-    /* mask-image: url(${onda3});
-    mask-repeat: repeat-x;
-    -webkit-mask-position-x: 0%;
-    -webkit-mask-position-y: bottom; */
-    /* transform: rotateX(190deg); */
   }
 `
 
