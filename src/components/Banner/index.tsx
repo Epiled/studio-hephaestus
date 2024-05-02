@@ -4,8 +4,8 @@ import Texto from "../Texto";
 //import onda from "../../assets/svg/onda.svg";
 //import onda2 from "../../assets/svg/onda2.svg";
 // import onda3 from "../../assets/svg/waveAnimate_1.svg";
-import onda3 from "../../assets/svg/wave.svg";
-
+// import onda3 from "../../assets/svg/wave.svg";
+import onda3 from "../../assets/wave.svg";
 
 const BannerEstilizado = styled.section`
   background-image: linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);

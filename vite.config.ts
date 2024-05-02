@@ -8,4 +8,13 @@ export default defineConfig({
     react(), 
     ViteSvgPlugin(),
   ],
+  build: {
+    outDir: 'dist', // Especificando a pasta de saída do build
+    assetsInlineLimit: 0 // Ajustando o limite de inlining de assets para 0 para garantir que os SVGs não sejam inlined
+  },
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  }
 })
