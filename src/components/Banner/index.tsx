@@ -3,7 +3,9 @@ import Titulo from "../Titulo";
 import Texto from "../Texto";
 //import onda from "../../assets/svg/onda.svg";
 //import onda2 from "../../assets/svg/onda2.svg";
-import onda3 from "../../assets/svg/onda3.svg";
+// import onda3 from "../../assets/svg/waveAnimate_1.svg";
+import onda3 from "../../assets/svg/wave.svg";
+
 
 const BannerEstilizado = styled.section`
   background-image: linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
@@ -12,16 +14,25 @@ const BannerEstilizado = styled.section`
 
   &::before {
     content: '';
-    top: 100%;
+    bottom: 0;
     left: 0;
     position: absolute;
     background-image: 
-      url(${onda3}),
-      linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
-    background-position: bottom;
+      url(${onda3});
+
+    background-position: bottom, bottom;
     background-repeat: repeat-x;
-    height: 6.8rem;
+    background-size: 750px auto, 100% auto;
+
+    height: 5.3rem;
     width: 100%;
+
+    animation: scrollWave 5s infinite linear forwards;
+    /* mask-image: url(${onda3});
+    mask-repeat: repeat-x;
+    -webkit-mask-position-x: 0%;
+    -webkit-mask-position-y: bottom; */
+    /* transform: rotateX(190deg); */
   }
 `
 
@@ -116,6 +127,7 @@ const Banner = () => {
   return (
     <BannerEstilizado>
       <BannerConteudo>
+
 
         <Titulo
           sub="Transformamos ideias em "

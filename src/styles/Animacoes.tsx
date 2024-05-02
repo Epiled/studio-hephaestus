@@ -30,6 +30,24 @@ const Animacoes: React.FC = createGlobalStyle`
       opacity: 0;
     }
   }
+
+  @keyframes scrollWave {
+    0% {
+      background-position-x: 0px;
+    }
+    100% {
+      background-position-x: -750px;
+    }
+  }
+
+  @keyframes scrollMaskHorizontal {
+    0% {
+      -webkit-mask-position-x: 0%;
+    }
+    100% {
+      -webkit-mask-position-x: 57%;
+    }
+  }
 `
 
 export default Animacoes;

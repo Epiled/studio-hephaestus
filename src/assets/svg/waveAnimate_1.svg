@@ -1,0 +1,18 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradiente_default" x1="0" y1="0" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6006"/>
+      <stop offset="1" stop-color="#FF7E06"/>
+    </linearGradient>
+    
+    
+    <clipPath id="onda_clip">
+      <path id="onda_path" fill-rule="evenodd" clip-rule="evenodd" d="M0 0V86.2387C28.3099 90.6337 57.1095 96.5638 86.889 102.696C155.419 116.807 229.139 131.986 314.024 131.986C390.224 131.986 436.019 119.754 483.606 107.043C535.068 93.2973 588.626 78.9918 684.997 78.9918C788.412 78.9918 854.224 95.7755 911.784 110.455C957.465 122.104 997.949 132.429 1047.91 131.986C1103.53 131.494 1153.29 118.622 1203.28 105.689C1254.75 92.3725 1306.47 78.9918 1365.11 78.9918C1391.73 78.9918 1416.57 81.8018 1440 86.1278V86.2387C1468.31 90.6337 1497.11 96.5638 1526.89 102.696C1595.42 116.807 1669.14 131.986 1754.02 131.986C1830.22 131.986 1876.02 119.754 1923.61 107.043C1975.07 93.2973 2028.63 78.9918 2125 78.9918C2228.41 78.9918 2294.22 95.7755 2351.78 110.455C2397.47 122.104 2437.95 132.429 2487.91 131.986C2543.53 131.494 2593.29 118.622 2643.28 105.689C2694.75 92.3725 2746.47 78.9918 2805.11 78.9918C2831.73 78.9918 2856.57 81.8018 2880 86.1278V0H1440H0Z" fill="white">
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="-1440 0" dur="5s" repeatCount="indefinite" />
+      </path>
+    </clipPath>
+  </defs>
+  
+  <rect width="100%" height="100%" x="0" y="0" fill="url(#gradiente_default)" clip-path="url(#onda_clip)" />
+  Sorry, your browser does not support inline SVG.  
+</svg>
