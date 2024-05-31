@@ -6,6 +6,7 @@ const PontuacoesStyled = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 5rem;
+  font-family: "Inter", sans-serif;
 `
 
 const PontosContainer = styled.div`
@@ -18,7 +19,7 @@ const PontosEsfera = styled.div<{cores?: string[]}>`
   width: 15rem;
   height: 15rem;
   aspect-ratio: 1 / 1;
-  background: #beffc9;
+  background: ${(props) =>(props.cores && props.cores[3]) || "#fff"};
   border: 1rem solid;
   border-color: ${(props) =>(props.cores && props.cores[1]) || "#fff"};
   border-radius: 50%;
@@ -29,9 +30,12 @@ const PontosEsfera = styled.div<{cores?: string[]}>`
   }
 `
 
-const Pontos = styled.span`
+const Pontos = styled.span<{cores?: string[]}>`
+  color: ${(props) =>(props.cores && props.cores[2]) || "#000000"};
   font-size: 3.6rem;
   font-weight: 900;
+  font-family: "Inter", sans-serif;
+  filter: drop-shadow(2px 2px 0px ${(props) =>(props.cores && props.cores[0]) || "#000000"});
 
   @media screen and (min-width: 1440px) {
     font-size: 6.4rem;
@@ -44,6 +48,7 @@ const PontosTitulos = styled.h3`
   margin-top: 3rem;
   text-align: center;
   flex-wrap: wrap;
+  font-family: "Inter", sans-serif;
 
   @media screen and (min-width: 1440px) {
     font-size: 3.2rem;
@@ -63,16 +68,16 @@ interface IPontuacoesProps {
 const setColors = (grade: number) => {
   switch(true) {
     case(grade <= 30): {
-      return ["#c82b0b", "#c82b0b"];
+      return ["#470000", "#BF0000", "#FF0000", "#FFD2D2", 300, 1];
     }
     case(grade <= 60): {
-      return ["#ff6f00", "#ff6f00"];
+      return ["#461900", "#FF6006", "#FF7A00", "#FFDECC", 500, 2];
     }
     case(grade <= 90): {
-      return ["#00ff1a", "#00ff1a"];
+      return ["#00331A", "#00B754", "#00CC66", "#C3FFE1", 700, 3];
     }
     default: {
-      return ["#fff200", "#fff200"];
+      return ["#5E4F00", "#F1AF09", "#cd9812" , "#FFF9BF", 900, 3];
     }
   }
 }
@@ -90,7 +95,9 @@ const Pontuacoes = ({ grades } : IPontuacoesProps) => {
       {Object.keys(grades).map((key) => (
         <PontosContainer key={key}>
           <PontosEsfera cores={setColors(grades[key as keyof typeof grades])}>
-            <Pontos>{grades[key as keyof typeof grades]}</Pontos>
+            <Pontos cores={setColors(grades[key as keyof typeof grades])}>
+              {grades[key as keyof typeof grades]}
+            </Pontos>
           </PontosEsfera>
           <PontosTitulos>
             {gradesMapping[key as keyof typeof grades]}
