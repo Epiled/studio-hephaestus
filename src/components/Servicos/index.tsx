@@ -2,7 +2,9 @@ import styled, { css } from "styled-components";
 import Titulo from "../Titulo";
 import Texto from "../Texto";
 import Wrapper from "../Wrapper";
-import imagem from "../../assets/imagem.png"
+import imagem from "../../assets/imagem.png";
+import serviceDesktop from "../../assets/img/servicos/desktop.svg";
+import serviceSEO from "../../assets/img/servicos/seo.svg";
 import PathBackground from "../PathBackground";
 
 const ServicosEstilizados = styled.div`
@@ -40,7 +42,7 @@ const ServicoConteudo = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    gap: 3rem;
+    /* gap: 3rem; */
   }
 `
 
@@ -87,7 +89,15 @@ const TituloEstilosAlt = {
   base: css`
   ${TituloEstilos.base};
     text-transform: none;
-  `
+  `,
+  mediaQueries: [
+    {
+      mediaQuery: "(min-width: 1440px)",
+      styles: css`
+        font-size: 6.4rem;
+      `,
+    },
+  ],
 }
 
 const SubEstilos = {
@@ -122,12 +132,11 @@ const TextoEstilos = {
       mediaQuery: "(min-width: 1440px)",
       styles: css`
       font-size: 3.2rem;
+      line-height: 4rem;
     `,
     },
   ],
 }
-
-
 
 const Servicos = () => {
   return (
@@ -152,7 +161,7 @@ const Servicos = () => {
               />
             </TextosContainer>
           </ServicoConteudo>
-          <Imagem src={imagem} />
+          <Imagem src={serviceDesktop} />
         </Servico>
 
         <ServicoAlt>
@@ -170,7 +179,7 @@ const Servicos = () => {
               />
             </TextosContainer>
           </ServicoConteudo>
-          <Imagem src={imagem} />
+          <Imagem src={serviceSEO} />
         </ServicoAlt>
       </Wrapper>
       <PathBackground />

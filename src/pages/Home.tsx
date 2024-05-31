@@ -5,6 +5,7 @@ import Rodape from "../components/Rodape";
 import Servicos from "../components/Servicos";
 import Lottie from "lottie-react";
 import walk from '../db/walk.json';
+import Processo from "../components/Processo";
 const Home = () => {
 
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Banner />
       <Servicos />
       <Projetos />
+      <Processo />
       <Contato />
       <Rodape />
       <Lottie animationData={walk} />

@@ -123,7 +123,6 @@ const Banner = () => {
     <BannerEstilizado>
       <BannerConteudo>
 
-
         <Titulo
           sub="Transformamos ideias em "
           text="Obras Primas digitais"
