@@ -15,9 +15,11 @@ const Animacoes: React.FC = createGlobalStyle`
   @keyframes revel {
     0% {
       opacity: 0;
+      transform: translate(-25px, 125px) rotate(15deg);
     }
     100% {
       opacity: 1;
+      transform: translate(0, 0) rotate(0);
     }
   }
 
@@ -25,9 +27,11 @@ const Animacoes: React.FC = createGlobalStyle`
   @keyframes hidden {
     0% {
       opacity: 1;
+      transform: translate(0, 0) rotate(0);
     }
     100% {
       opacity: 0;
+      transform: translate(25px, 25px) rotate(-5deg);
     }
   }
 

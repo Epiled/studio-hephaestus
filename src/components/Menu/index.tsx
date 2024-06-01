@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Botao from "../Botao";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const MenuEstilizado = styled.header`
   width: 100%;
@@ -8,7 +8,7 @@ const MenuEstilizado = styled.header`
 
 const MenuBotao = styled.div`
   position: fixed;
-  top: 3.5rem;
+  top: 2rem;
   right: 2.5rem;
   z-index: 5;
 
@@ -43,12 +43,12 @@ const Navegation = styled.nav`
 
   &[data-revel="true"] {
     opacity: 1;
-    animation: revel 1s;
+    animation: revel 1s forwards;
   }
 
   &[data-revel="false"] {
     opacity: 0;
-    animation: hidden 1s;
+    animation: hidden 1s forwards;
   }
 
 `
@@ -64,27 +64,46 @@ const LinkStyled = styled.a`
 `
 
 const Menu = () => {
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const revelMenu = () => {
     const current = menuRef.current;
-    if(current) {
-      const isRevealed = current.dataset.reveal === "true";
-      current.dataset.reveal = String(!isRevealed);
-      current.style.display = isRevealed ? "none" : "block";
+    if (current) {
+      const isRevealed = current.dataset.revel === "true";
+      current.dataset.revel = String(!isRevealed);
+      current.style.display = "flex";
     }
   }
 
-  const menuRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const current = menuRef.current;
+
+    if (current) {
+      const handleAnimationEnd = () => {
+        if (current.dataset.revel === "false") {
+          current.style.display = "none";
+        }
+      };
+
+      current.addEventListener("animationend", handleAnimationEnd);
+
+      return () => {
+        current.removeEventListener("animationend", handleAnimationEnd);
+      };
+    }
+  }, []);
 
   return (
     <MenuEstilizado>
       <MenuBotao>
-        <Botao 
-          text="Menu" 
-          iconRight='menu' 
-          $gap='1rem' 
+        <Botao
+          text="Menu"
+          iconRight='menu'
+          $gap='1.5rem'
           onClick={revelMenu}
-          />
+          $width="16.6rem"
+          $justifyContent='center'
+        />
       </MenuBotao>
 
       <Navegation ref={menuRef} data-revel="false" >

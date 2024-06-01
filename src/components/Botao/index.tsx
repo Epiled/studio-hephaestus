@@ -31,6 +31,7 @@ const BotaoEstilizado = styled.button<IBotao>`
   padding-left: ${(props) => props.$fontSize || "2rem"};
   transition: color .5s ease-in-out;
   aspect-ratio: ${(props) => props.aspect ? 1 / 1 : "initial"};
+  width: ${(props) => props.$width || "initial"};;
 
   &:hover {
     color: var(--lighter);
@@ -50,7 +51,8 @@ const BotaoConteudo = styled.div<IBotao>`
   position: relative;
   display: flex;
   align-items: center;
-  gap: ${(props) => props.$gap || "0"};;
+  justify-content: ${(props) => props.$justifyContent || "initial"};
+  gap: ${(props) => props.$gap || "0"};
   font-size: inherit;
   text-transform: uppercase;
   z-index: 1;
@@ -67,6 +69,8 @@ interface IBotao {
   pl?: string,
   $gap?: string,
   aspect?: boolean,
+  $width?: string,
+  $justifyContent?: string,
   onClick?: () => void,
 }
 
@@ -77,7 +81,7 @@ const IconsMap = {
   'circle': IconEllipse,
 }
 
-const Botao = ({ text, iconLeft, iconRight, $fontSize, $gap, aspect, onClick }: IBotao) => {
+const Botao = ({ text, iconLeft, iconRight, $fontSize, $gap, aspect, $width, $justifyContent, onClick }: IBotao) => {
 
   const botao = useRef<HTMLButtonElement | null>(null);
   const circulo = useRef<HTMLSpanElement | null>(null);
@@ -116,8 +120,10 @@ const Botao = ({ text, iconLeft, iconRight, $fontSize, $gap, aspect, onClick }: 
       $fontSize={$fontSize}
       onClick={onClick}
       aspect={aspect}
-    >
+      $width={$width}
+      >
       <BotaoConteudo
+        $justifyContent={$justifyContent}
         $gap={$gap}
       >
         {iconLeft ? <StyledIcon as={IconsMap[iconLeft || ""]} /> : ""}
