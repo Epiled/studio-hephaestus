@@ -68,6 +68,7 @@ const Menu = () => {
 
   const revelMenu = () => {
     const current = menuRef.current;
+
     if (current) {
       const isRevealed = current.dataset.revel === "true";
       current.dataset.revel = String(!isRevealed);
@@ -100,9 +101,9 @@ const Menu = () => {
           text="Menu"
           iconRight='menu'
           $gap='1.5rem'
-          onClick={revelMenu}
           $width="16.6rem"
           $justifyContent='center'
+          onClick={revelMenu}
         />
       </MenuBotao>
 
