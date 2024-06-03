@@ -9,7 +9,7 @@ const MenuEstilizado = styled.header`
 const MenuBotao = styled.div`
   position: fixed;
   top: 2rem;
-  right: 2.5rem;
+  right: 2rem;
   z-index: 5;
 
   @media screen and (min-width: 768px) {

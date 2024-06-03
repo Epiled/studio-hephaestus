@@ -32,7 +32,7 @@ const BannerEstilizado = styled.section`
 `
 
 const Wrapper = styled.div`
-  width: calc(100vw - 5rem);
+  width: calc(100vw - 4rem);
 
   @media screen and (min-width: 768px) {
     width: calc(100vw - 7.5rem);
@@ -68,6 +68,7 @@ const TituloEstilos = {
     text-transform: uppercase;
     font-size: 3.6rem;
     margin-bottom: 0;
+    font-weight: 900;
   `,
   mediaQueries: [
     {
