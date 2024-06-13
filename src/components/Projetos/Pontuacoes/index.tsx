@@ -1,5 +1,14 @@
 import styled from "styled-components"
 
+interface IPontuacoesProps {
+  grades: {
+    performance: number;
+    accessibility: number;
+    bestPratics: number;
+    seo: number;
+  };
+}
+
 const PontuacoesStyled = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -13,16 +22,16 @@ const PontuacoesStyled = styled.div`
 const PontosContainer = styled.div`
 `
 
-const PontosEsfera = styled.div<{cores?: string[]}>`
+const PontosEsfera = styled.div<{cores?: (string | number)[]}>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 15rem;
   height: 15rem;
   aspect-ratio: 1 / 1;
-  background: ${(props) =>(props.cores && props.cores[3]) || "#fff"};
+  background: ${(props) =>(props.cores && props.cores[3]) || "var(--lighter)"};
   border: 1rem solid;
-  border-color: ${(props) =>(props.cores && props.cores[1]) || "#fff"};
+  border-color: ${(props) =>(props.cores && props.cores[1]) || "var(--lighter)"};
   border-radius: 50%;
   
   @media screen and (min-width: 1440px) {
@@ -31,12 +40,12 @@ const PontosEsfera = styled.div<{cores?: string[]}>`
   }
 `
 
-const Pontos = styled.span<{cores?: string[]}>`
-  color: ${(props) =>(props.cores && props.cores[2]) || "#000000"};
+const Pontos = styled.span<{cores?:(string | number)[]}>`
+  color: ${(props) =>(props.cores && props.cores[2]) || "var(--darker)"};
   font-size: 3.6rem;
   font-weight: 900;
   font-family: "Inter", sans-serif;
-  filter: drop-shadow(2px 2px 0px ${(props) =>(props.cores && props.cores[0]) || "#000000"});
+  filter: drop-shadow(2px 2px 0px ${(props) =>(props.cores && props.cores[0]) || "var(--darker)"});
 
   @media screen and (min-width: 1440px) {
     font-size: 6.4rem;
@@ -56,15 +65,6 @@ const PontosTitulos = styled.h3`
     margin-top: 6rem;
   }
 `
-
-interface IPontuacoesProps {
-  grades: {
-    performance: number;
-    accessibility: number;
-    bestPratics: number;
-    seo: number;
-  };
-}
 
 const setColors = (grade: number) => {
   switch(true) {
