@@ -8,6 +8,7 @@ const PathBackground = () => {
     left: "50%",
     transform: "translate(-50%, -50%)",
     zIndex: "-1",
+    minWidth: "1520px",
   }
 
   const pathStyled = {

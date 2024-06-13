@@ -1,14 +1,15 @@
 import styled from "styled-components"
 
 const WrapperEstilizado = styled.div`
-  width: calc(100vw - 5rem);
+  width: calc(100vw - 4rem);
+  height: auto;
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
     width: calc(100vw - 7.5rem);
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1440px) {
     width: calc(100vw - 10rem);
   }
 `

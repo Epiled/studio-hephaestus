@@ -11,6 +11,8 @@ const Variaveis: React.FC = createGlobalStyle`
     --color-red-middle-1: #FF0000;
     --color-red-light-1: #FFD2D2;
 
+    --color-font-gray-1: #333333;
+
     --lighter: #ffffff;
     --darker: #000000;
   }

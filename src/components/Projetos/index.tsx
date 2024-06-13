@@ -12,9 +12,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import CirculoSVG from "../CirculoSVG";
-import onda3 from "../../assets/svg/onda3.svg";
+import Bubble from "../Bubble";
+import wave from "../../assets/wave.svg";
 
-const ProjetosEstilizados = styled.section``
+const ProjetosEstilizados = styled.section`
+  position: relative;
+`
 
 const ContainerBottom = styled.div`
   margin-top: 6rem;
@@ -49,7 +52,7 @@ const SubProjeto = styled(SubTitulo)`
   background-image: linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
   background-clip: text;
   color: transparent;
-  margin-bottom: .5rem;
+  margin-bottom: 0;
   
   @media screen and (min-width: 1440px) {
     font-size: 2.4rem;
@@ -101,25 +104,29 @@ const NameType = styled.h3`
   font-weight: 800;
   display: flex;
   align-items: center;
+  position: relative;
 `
 
 const SwiperCustom = styled(Swiper)`
   overflow: visible;
   position: relative;
+  background-image: linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
 
   &::before {
     content: '';
     top: 0%;
     left: 0;
     position: absolute;
-    background-image: 
-      url(${onda3}),
-      linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
+    background-image: url(${wave});
     background-position: bottom;
     background-repeat: repeat-x;
     height: 6.8rem;
     width: 100%;
     height: 50%;
+    animation: scrollWave 5s infinite linear forwards reverse;
+    animation-delay: 1000ms;
   }
 `
 
@@ -129,6 +136,10 @@ const SwiperSlideCustom = styled(SwiperSlide)`
   @media screen and (min-width: 1440px) {
     width: 42rem;
   }
+`
+
+const CirculoSVGStyled = styled(CirculoSVG)`
+  margin-right: .5rem;
 `
 
 const Projetos = () => {
@@ -169,11 +180,12 @@ const Projetos = () => {
     handleSelected("3");
   }, []);
 
-  const swiperRef = useRef<SwiperRef  | null>(null);
+  const swiperRef = useRef<SwiperRef | null>(null);
+  const [active, setActive] = useState(false);
 
   return (
     <ProjetosEstilizados>
-
+      <Bubble />
       <Topo
         onPrevClick={() => swiperRef.current?.swiper?.slidePrev()}
         onNextClick={() => swiperRef.current?.swiper?.slideNext()}
@@ -199,13 +211,17 @@ const Projetos = () => {
           return (
             <SwiperSlideCustom key={project.id}>
               <ContainerProject>
-                <ProjectMoldura onClick={() => handleSelected(project.id)}>
+                <ProjectMoldura onClick={() => {
+                  setActive(true)
+                  handleSelected(project.id)
+                }}>
                   <ProjectImage src={project.image} />
                 </ProjectMoldura>
                 <ProjectLabels>
                   <CategoryName>{project.category} - {project.name}</CategoryName>
                   <NameType>
-                    {idActive === project.id && <CirculoSVG />}
+                    {/* {idActive === project.id && <CirculoSVGStyled estado={active} />} */}
+                    <CirculoSVGStyled estado={idActive === project.id && active} />
                     {project.shortName} - {project.category}
                   </NameType>
                 </ProjectLabels>

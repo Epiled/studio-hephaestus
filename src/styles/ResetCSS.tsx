@@ -56,6 +56,7 @@ const ResetCSS: React.FC = createGlobalStyle`
   * {
     font-family: "Mada", sans-serif;
     box-sizing: border-box;
+    line-height: normal;
   }
   :root {
     font-size: 62.5%;

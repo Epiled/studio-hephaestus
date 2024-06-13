@@ -1,12 +1,11 @@
 /// <reference types="vite-plugin-svgr/client" />
 import styled from "styled-components";
-import IconMenu from "../../assets/svg/menu.svg?react";
-import IconEllipse from "../../assets/svg/ellipse.svg?react";
-import IconArrowLeft from "../../assets/svg/arrowLeft.svg?react";
-import IconArrowRight from "../../assets/svg/arrowRight.svg?react";
-import StyledIcon from "../StyledIcon";
+import IconMenu from "../../../../assets/svg/menu.svg?react";
+import IconEllipse from "../../../../assets/svg/ellipse.svg?react";
+import IconArrowLeft from "../../../../assets/svg/arrowLeft.svg?react";
+import IconArrowRight from "../../../../assets/svg/arrowRight.svg?react";
+import StyledIcon from "../../../StyledIcon";
 import { MouseEvent, useRef } from "react";
-import Estilos from "../../types/Estilos";
 
 const Circle = styled.span`
   position: absolute;
@@ -21,17 +20,16 @@ const Circle = styled.span`
 
 const BotaoEstilizado = styled.button<IBotao>`
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   border-radius: 5rem;
   border: 0;
-  font-size: ${(props) => props.$fontSize || "2rem"};
-  padding-top: ${(props) => props.$fontSize || "2rem"};
-  padding-right: ${(props) => props.$fontSize || "2rem"};
-  padding-bottom: ${(props) => props.$fontSize || "2rem"};
-  padding-left: ${(props) => props.$fontSize || "2rem"};
   transition: color .5s ease-in-out;
   aspect-ratio: ${(props) => props.$aspect ? 1 / 1 : "initial"};
-  width: ${(props) => props.$width || "initial"};
+  width: 5rem;
+  min-width: 5rem;
 
   &:hover, &[data-revel="true"] {
     color: var(--lighter);
@@ -45,7 +43,14 @@ const BotaoEstilizado = styled.button<IBotao>`
       fill: var(--lighter);
     }
 
+    @media screen and (min-width: 1440px) {
+      width: 10rem;
+    }
+  }
 
+  @media screen and (min-width: 1440px) {
+    width: 10rem;
+    height: 10rem;
   }
 `
 
@@ -65,16 +70,10 @@ interface IBotao {
   iconLeft?: 'menu' | 'leftArrow' | 'rightArrow' | 'circle',
   iconRight?: 'menu' | 'leftArrow' | 'rightArrow' | 'circle',
   $fontSize?: string,
-  pt?: string,
-  pr?: string,
-  pb?: string,
-  pl?: string,
   $gap?: string,
   $aspect?: boolean,
-  $width?: string,
   $justifyContent?: string,
   onClick?: () => void,
-  $styles?: Estilos;
 }
 
 const IconsMap = {
@@ -84,7 +83,7 @@ const IconsMap = {
   'circle': IconEllipse,
 }
 
-const Botao = ({ text, iconLeft, iconRight, $fontSize, $gap, $aspect, $width, $justifyContent, onClick, $styles }: IBotao) => {
+const Botao = ({ text, iconLeft, iconRight, $fontSize, $gap, $aspect, onClick }: IBotao) => {
 
   const botao = useRef<HTMLButtonElement | null>(null);
   const circulo = useRef<HTMLSpanElement | null>(null);
@@ -138,12 +137,9 @@ const Botao = ({ text, iconLeft, iconRight, $fontSize, $gap, $aspect, $width, $j
       }}
       $fontSize={$fontSize}
       $aspect={$aspect}
-      $width={$width}
-      $styles={$styles}
       data-revel="false"
     >
       <BotaoConteudo
-        $justifyContent={$justifyContent}
         $gap={$gap}
       >
         {iconLeft ? <StyledIcon as={IconsMap[iconLeft || ""]} /> : ""}

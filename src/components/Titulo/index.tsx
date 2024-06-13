@@ -1,78 +1,35 @@
-import styled, { css } from "styled-components";
-import Estilos from "../../types/Estilos";
+import styled from "styled-components";
 
-interface ITitulo extends ISub {
+interface ITitulo {
   as?: React.ElementType;
+  children?: React.ReactNode;
+  className?: string;
   text?: string;
-  $styles?: Estilos;
 }
 
-interface ISub {
-  sub?: string;
-  $subStyles?: Estilos;
-}
-
-const TituloEstilizado = styled.h2<ITitulo>`
+const TituloEstilizado = styled.h2`
   display: flex;
   flex-direction: column;
   font-size: 3.2rem;
-  gap: 1rem;
   margin-bottom: 3rem;
-
-  ${(props) => props.$styles?.base && css`
-    ${props.$styles.base}
-  `}
+  font-weight: bold;
+  font-family: 'Mada', sans-serif;
 
   @media screen and (min-width: 768px) {
-    font-size: 3.6rem
+    font-size: 3.6rem;
   }
 
   @media screen and (min-width: 1440px) {
-    font-size: 4.8rem
+    font-size: 4.8rem;
   }
-
-  ${(props) => props.$styles?.mediaQueries && props.$styles.mediaQueries.map((mqStyle) => css`
-    @media ${mqStyle.mediaQuery} {
-      ${mqStyle.styles}
-    }
-  `)}
 `;
 
-const Sub = styled.span<ISub>`
-  font-size: 2rem;
-
-  ${(props) => props.$subStyles?.base && css`
-    ${props.$subStyles.base}
-  `}
-
-  @media screen and (min-width: 1440px) {
-    font-size: 3.2rem;
-  }
-
-  ${(props) => props.$subStyles?.mediaQueries && props.$subStyles.mediaQueries.map((mqStyle) => css`
-    @media ${mqStyle.mediaQuery} {
-      ${mqStyle.styles}
-    }
-  `)}
-`
-
-const Titulo = ({ as: Tag = "h2", sub, text, $styles, $subStyles }: ITitulo) => {
-
+const Titulo = ({ as: Tag = "h2", text, children, className }: ITitulo) => {
   return (
-    <TituloEstilizado
-      as={Tag}
-      $styles={$styles}
-    >
-      {sub && (
-        <Sub $subStyles={$subStyles}>
-          {sub}
-        </Sub>
-      )}
-
-      {text && text}
-
+    <TituloEstilizado as={Tag} className={className}>
+      {text || children}
     </TituloEstilizado>
-  )
-}
+  );
+};
 
-export default Titulo
+export default Titulo;

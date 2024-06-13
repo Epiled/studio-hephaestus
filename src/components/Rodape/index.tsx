@@ -7,7 +7,7 @@ import CirculoSVG from "../CirculoSVG";
 const RodapeStyled = styled.footer`
   background: var(--darker);
   color: var(--lighter);
-  margin-top: 12rem;
+  /* margin-top: 12rem; */
   padding-top: 10rem;
   padding-bottom: 4rem;
 `
@@ -104,7 +104,7 @@ const Rodape = () => {
 
           <Bloco>
             <Categoria>
-              <CirculoSVG />
+              <CirculoSVG width="10" />
               Navegação
             </Categoria>
             <Navegacao>
@@ -122,7 +122,7 @@ const Rodape = () => {
 
           <Bloco>
             <Categoria>
-              <CirculoSVG />
+              <CirculoSVG width="10" />
               Contato
             </Categoria>
             <Contato>
@@ -142,7 +142,7 @@ const Rodape = () => {
         </Blocos>
         <BlocoCopy>
           <CirculoContainer>
-            <CirculoSVG />
+            <CirculoSVG width="10" />
           </CirculoContainer>
           <Extra>Copyright</Extra>
           <Extra>Politica de provacidade</Extra>

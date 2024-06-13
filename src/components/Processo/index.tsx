@@ -155,7 +155,7 @@ const Processo = () => {
         />
 
         <Part $alt>
-          <ContainerSVG $largura="50%">
+          <ContainerSVG>
             <Vetor
               viewBox="0 0 641.5 448.5"
               width="641.5"
@@ -169,7 +169,7 @@ const Processo = () => {
             </Vetor>
           </ContainerSVG>
 
-          <ContainerSVG
+          {/* <ContainerSVG
             $distancia="3.5px"
             $largura="calc(50% - 7px)"
             $altura="calc(100% - 3.5px)"
@@ -185,7 +185,7 @@ const Processo = () => {
                 vector-effect="non-scaling-stroke"
               />
             </Vetor>
-          </ContainerSVG>
+          </ContainerSVG> */}
 
           <Box>
             <Titulo><Des>1.</Des> O Conceito</Titulo>
@@ -211,7 +211,7 @@ const Processo = () => {
             </Vetor>
           </ContainerSVG>
 
-          <ContainerSVG
+          {/* <ContainerSVG
             $top="-3.5px"
             $distancia="3.5px"
             $largura="calc(100% - 7px)"
@@ -228,7 +228,7 @@ const Processo = () => {
                 vector-effect="non-scaling-stroke"
               />
             </Vetor>
-          </ContainerSVG>
+          </ContainerSVG> */}
 
           <Box>
             <Titulo><Des>2.</Des> Coleta de materia prima</Titulo>
@@ -425,7 +425,7 @@ const Processo = () => {
             Trabalhamos em estreita colaboração com nossos clientes para entender suas metas e criar soluções que impulsionem o sucesso.
           </TextoRodape>
 
-          <CirculoSVG />
+          <CirculoSVG width="25" />
         </Rodape>
       </Wrapper>
     </ProjetosEstilizados>

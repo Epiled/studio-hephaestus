@@ -4,62 +4,64 @@ import Texto from "../Texto";
 import CirculoSVG from "../CirculoSVG";
 import Wrapper from "../Wrapper";
 import ButtonWithArrow from "../ButtonWithArrow";
+import Bubble from "../Bubble";
+import wave from "../../assets/wave.svg";
 
 const ContatoEstilizado = styled.section`
+  position: relative;
   background-color: var(--darker);
-  padding: 10rem 0;
-  margin-top: 15rem;
+  padding: 20rem 0;
+  margin-top: 10rem;
+
+  &::before {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-image: 
+      url(${wave});
+
+    background-position: bottom, bottom;
+    background-repeat: repeat-x;
+    background-size: 750px auto, 100% auto;
+
+    height: 5.3rem;
+    width: 100%;
+
+    animation: scrollWave 5s infinite linear forwards;
+    transform: rotateZ(180deg);
+  }
 `
 
-const TituloEstilos = {
-  base: css`
-    color: var(--lighter);
-    text-transform: uppercase;
+const TituloStyled = styled(Titulo)`
+  color: var(--lighter);
+  font-size: 3.2rem;
+  text-transform: none;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 4.8rem;
+  }
+`
+
+const Sub = styled(TituloStyled).attrs({ as: 'span' })`
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  text-transform: none;
+
+  @media screen and (min-width: 1440px) {
     font-size: 3.2rem;
-    margin-bottom: 0;
-    text-transform: none;
-    margin-bottom: 4rem;
-  `,
-  mediaQueries: [
-    {
-      mediaQuery: "(min-width: 1440px)",
-      styles: css`
-        font-size: 4.8rem;
-      `,
-    },
-  ],
-}
+  }
+`
 
-const SubTitleStyle = {
-  base: css`
+const TextoStyled = styled(Texto)`
+  color: var(--lighter);
+  font-size: 2rem;
+
+  @media screen and (min-width: 1440px) {
     font-size: 2.4rem;
-    font-weight: 400;
-    text-transform: none;
-  `,
-  mediaQueries: [
-    {
-      mediaQuery: "(min-width: 1440px)",
-      styles: css`
-        font-size: 3.2rem;
-      `,
-    },
-  ]
-}
-
-const TextoEstilos = {
-  base: css`
-    color: var(--lighter);
-    font-size: 2rem;
-  `,
-  mediaQueries: [
-    {
-      mediaQuery: "(min-width: 1440px)",
-      styles: css`
-        font-size: 2.4rem;
-      `,
-    },
-  ],
-}
+  }
+`
 
 const Formulario = styled.form`
   display: flex;
@@ -96,6 +98,8 @@ const Input = styled.input`
   border: 2px solid var(--color-complement);
   background-color: #FFF3E9;
   height: 5rem;
+  padding: 0 1rem;
+  font-size: 1.6rem;
 
   @media screen and (min-width: 1440px) {
     height: 7rem;
@@ -161,37 +165,46 @@ const BlocoMain = styled.div`
   max-width: 65rem;
 `
 
-const CustomButton = {
-  base: css`
-    color: var(--lighter);
-    background-color: var(--darker);
-    border: .2rem solid var(--lighter);
-    width: fit-content;
-    margin: 0 auto;
-`,
-}
+const BubbleStyled = styled(Bubble)`
+  top: -5rem;
+`
+
+const ButtonWithArrowStyled = styled(ButtonWithArrow)`
+  color: var(--lighter);
+  background-color: var(--darker);
+  border: .2rem solid var(--lighter);
+  width: fit-content;
+  margin: 0 auto;
+
+  &:hover {
+    color: var(--darker);
+  }
+`
+
+
+const customGradiente = [
+  { porcent: 0, color: '#fff' }
+]
 
 const Contato = () => {
   return (
     <ContatoEstilizado>
+      <BubbleStyled reverse gradienteCustom={customGradiente} />
       <Wrapper>
         <Blocos>
           <BlocoMain>
-            <Titulo
-              sub="Gostariamos de ouvi-ló :D"
-              text="Vamos cirar uma grande obra!"
-              $styles={TituloEstilos}
-              $subStyles={SubTitleStyle}
-            />
-            <Texto
+            <TituloStyled>
+              <Sub>Gostariamos de ouvi-ló :D</Sub>
+              Vamos cirar uma grande obra!
+            </TituloStyled>
+            <TextoStyled
               text="Estamos ansiosos para ouvir sobre seu próximo projeto. Entre em contato para começarmos a transformar sua visão em realidade."
-              $styles={TextoEstilos}
             />
 
             <Formulario>
               <CampoContainer>
                 <Label>
-                  <CirculoSVG />
+                  <CirculoSVG width="10" />
                   Qual seu nome:
                 </Label>
                 <Input type="text" />
@@ -199,7 +212,7 @@ const Contato = () => {
 
               <CampoContainer>
                 <Label>
-                  <CirculoSVG />
+                  <CirculoSVG width="10" />
                   E-mail de contato:
                 </Label>
                 <Input type="text" />
@@ -207,13 +220,14 @@ const Contato = () => {
 
               <CampoContainer>
                 <Label>
-                  <CirculoSVG />
+                  <CirculoSVG width="10" />
                   Como podemos ajuda-ló?
                 </Label>
                 <Input type="text" />
               </CampoContainer>
 
-              <ButtonWithArrow $styles={CustomButton} text="Ver Todos" />
+              <ButtonWithArrowStyled iconColor={"#ffffff"} text="Ver Todos" />
+
             </Formulario>
           </BlocoMain>
 

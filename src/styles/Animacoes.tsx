@@ -61,6 +61,17 @@ const Animacoes: React.FC = createGlobalStyle`
       -webkit-mask-position-x: 57%;
     }
   }
+
+  @keyframes top-revel {
+    0% {
+      opacity: 0;
+      top: 2rem;
+    }
+    100% {
+      opacity: 1;
+      top: 0rem;
+    }
+  }
 `
 
 export default Animacoes;

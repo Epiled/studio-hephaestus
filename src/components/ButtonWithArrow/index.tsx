@@ -6,42 +6,51 @@ import Estilos from "../../types/Estilos";
 
 interface IBotao {
   text?: string,
-  iconLeft?: 'menu' | 'leftArrow' | 'rightArrow' |'circle',
-  iconRight?: 'menu' | 'leftArrow' | 'rightArrow' |'circle',
+  iconLeft?: 'menu' | 'leftArrow' | 'rightArrow' | 'circle',
+  iconRight?: 'menu' | 'leftArrow' | 'rightArrow' | 'circle',
   $fontSize?: string,
-  pt?: string,
-  pr?: string,
-  pb?: string,
-  pl?: string,
   $gap?: string,
   aspect?: boolean,
   onClick?: () => void,
   $styles?: Estilos;
-
+  className?: string;
+  iconColor?: string;
 }
 
-const StyledIconCustom = styled(StyledIcon)`
+const StyledIconCustom = styled(StyledIcon)<{iconColor?: string}>`
   position: absolute;
   top: 50%;
   right: -5rem;
   transform: translate(-50%, -50%);
   opacity: 0;
-  fill: var(--lighter);
+
+  /* fill: ${(props) => (props.iconColor ? props.iconColor : `var(--lighter)`)}; */
   transition: transform .7s ease-in-out, fill .25s, opacity .5s;
   z-index: 1;
+
+  @media screen and (min-width: 1440px) {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 `
 
-const Circle = styled.span`
+const Circle = styled.span<{iconColor?: string}>`
   position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: .75rem;
+  height: .75rem;
   border-radius: 50%;
-  background-color: var(--darker);
+  background-color: ${(props) => props.iconColor || `var(--darker)`};
   top: 50%;
   left: 2.5rem;
   transform: translate(-50%, -50%);
   transition: width .5s ease-in-out, height .5s ease-in-out;
   z-index: 0;
+
+  @media screen and (min-width: 1440px) {
+    left: 3.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `
 
 const BotaoConteudo = styled.div<IBotao>`
@@ -50,30 +59,24 @@ const BotaoConteudo = styled.div<IBotao>`
   align-items: center;
   gap: ${(props) => props.$gap || "0"};;
   font-size: inherit;
-  text-transform: uppercase;
+  text-transform: capitalize;
   z-index: 1;
-  margin-left: 2.5rem;
+  margin-left: 2rem;
   transform: translateX(0);
   transition: transform .25s ease-in-out;
 `
 
 const BotaoEstilizado = styled.button<IBotao>`
   position: relative;
-
+  flex-shrink: 0;
   overflow: hidden;
   border-radius: 5rem;
   border: 0;
   font-size: ${(props) => props.$fontSize || "2rem"};
-  padding-top: ${(props) => props.$fontSize || "2rem"};
-  padding-right: ${(props) => props.$fontSize || "2rem"};
-  padding-bottom: ${(props) => props.$fontSize || "2rem"};
-  padding-left: ${(props) => props.$fontSize || "2rem"};
+  padding: 0 2rem;
   transition: color .5s ease-in-out;
   aspect-ratio: ${(props) => props.aspect ? 1 / 1 : "auto"};
-
-  ${(props) => props.$styles?.base && css`
-    ${props.$styles.base}
-  `}
+  min-height: 5rem;
 
   &:hover {
     color: var(--lighter);
@@ -84,7 +87,7 @@ const BotaoEstilizado = styled.button<IBotao>`
     }
 
     ${StyledIconCustom} {
-      fill: var(--lighter);
+      fill: ${(props) => (props.iconColor ? 'var(--darker)' : `var(--lighter)`)};
       opacity: 1;
       transition: transform .4s ease-in-out, fill .2s, opacity .1s;
       transform: translate(-5.5rem, -50%);
@@ -95,9 +98,21 @@ const BotaoEstilizado = styled.button<IBotao>`
       transform: translateX(-2rem);
     }
   }
+
+  @media screen and (min-width: 1440px) {
+    &:hover {
+      ${StyledIconCustom} {
+        transform: translate(-7rem, -50%);
+      }
+    }
+
+    font-size: 3.2rem;
+    height: 10rem;
+    padding: 0 4rem;
+  }
 `
 
-const ButtonWithArrow = ({ text, $fontSize, $gap, onClick, $styles }: IBotao) => {
+const ButtonWithArrow = ({ text, $fontSize, $gap, className, onClick, iconColor }: IBotao) => {
 
   const botao = useRef<HTMLButtonElement | null>(null);
   const circulo = useRef<HTMLSpanElement | null>(null);
@@ -132,16 +147,17 @@ const ButtonWithArrow = ({ text, $fontSize, $gap, onClick, $styles }: IBotao) =>
       onMouseEnter={() => revelPoint()}
       onMouseLeave={() => hiddenPoint()}
       $fontSize={$fontSize}
+      className={className}
       onClick={onClick}
-      $styles={$styles}
+      iconColor={iconColor}
     >
       <BotaoConteudo
         $gap={$gap}
       >
         {text}
       </BotaoConteudo>
-      <StyledIconCustom as={IconArrowRight} />
-      <Circle ref={circulo} />
+      <StyledIconCustom as={IconArrowRight} iconColor={iconColor} />
+      <Circle ref={circulo} iconColor={iconColor} />
     </BotaoEstilizado>
   );
 }

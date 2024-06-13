@@ -1,18 +1,15 @@
-import styled, { css } from "styled-components";
-import Estilos from "../../types/Estilos";
+import styled from "styled-components";
 
 interface ITexto {
+  as?: React.ElementType;
+  className?: string;
   text?: string;
-  $styles?: Estilos;
 }
 
 const TextoEstilizado = styled.p<ITexto>`
   font-size: 2rem;
-  color: black;
-
-  ${(props) => props.$styles?.base && css`
-    ${props.$styles.base}
-  `}
+  font-family: 'Inter', sans-serif;
+  color: var(--darker);
 
   @media screen and (min-width: 768px) {
     font-size: 2rem;
@@ -21,17 +18,14 @@ const TextoEstilizado = styled.p<ITexto>`
   @media screen and (min-width: 1440px) {
     font-size: 3.2rem;
   }
-
-  ${(props) => props.$styles?.mediaQueries && props.$styles.mediaQueries.map((mqStyle) => css`
-    @media ${mqStyle.mediaQuery} {
-      ${mqStyle.styles}
-    }
-  `)}
 `
 
-const Texto = ({ text, $styles }: ITexto) => {
+const Texto = ({ as: Tag = "p", className, text }: ITexto) => {
   return (
-    <TextoEstilizado $styles={$styles}>
+    <TextoEstilizado
+      as={Tag}
+      className={className}
+    >
       {text}
     </TextoEstilizado>
   )

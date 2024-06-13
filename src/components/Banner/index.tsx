@@ -1,11 +1,7 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Titulo from "../Titulo";
 import Texto from "../Texto";
-//import onda from "../../assets/svg/onda.svg";
-//import onda2 from "../../assets/svg/onda2.svg";
-// import onda3 from "../../assets/svg/waveAnimate_1.svg";
-// import onda3 from "../../assets/svg/wave.svg";
-import onda3 from "../../assets/wave.svg";
+import wave from "../../assets/wave.svg";
 
 const BannerEstilizado = styled.section`
   background-image: linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
@@ -18,7 +14,7 @@ const BannerEstilizado = styled.section`
     left: 0;
     position: absolute;
     background-image: 
-      url(${onda3});
+      url(${wave});
 
     background-position: bottom, bottom;
     background-repeat: repeat-x;
@@ -46,7 +42,6 @@ const Wrapper = styled.div`
 const BannerConteudo = styled(Wrapper)`
   display: flex;
   flex-direction: column;
-  gap: 3rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -62,61 +57,43 @@ const BannerConteudo = styled(Wrapper)`
   }
 `
 
-const TituloEstilos = {
-  base: css`
-    color: var(--lighter);
-    text-transform: uppercase;
+const TituloStyled = styled(Titulo)`
+  color: var(--lighter);
+  font-size: 3.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    font-size: 4.8rem;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 6.4rem;
+  }
+`
+
+const Sub = styled(Texto).attrs({as: 'span'})`
+  color: var(--lighter);
+  font-size: 2.4rem;
+  font-family: 'Mada', sans-serif;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 1440px) {
     font-size: 3.6rem;
-    margin-bottom: 0;
-    font-weight: 900;
-  `,
-  mediaQueries: [
-    {
-      mediaQuery: "(min-width: 768px)",
-      styles: css`
-        font-size: 4.8rem;
-      `,
-    },
-    {
-      mediaQuery: "(min-width: 1440px)",
-      styles: css`
-        font-size: 6.4rem;
-      `,
-    },
-  ],
-}
+  }
+`
 
-const SubTitleStyle = {
-  base: css`
+const TextoStyled = styled(Texto)`
+  color: var(--lighter);
+  font-family: 'Mada', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 3rem;
+
+  @media screen and (min-width: 1440px) {
     font-size: 2.4rem;
-  `,
-  mediaQueries: [
-    {
-      mediaQuery: "(min-width: 1440px)",
-      styles: css`
-        font-size: 3.6rem;
-      `,
-    },
-  ]
-}
-
-const TextoEstilos = {
-  base: css`
-    color: var(--lighter);
-    font-size: 2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 3rem;
-  `,
-  mediaQueries: [
-    {
-      mediaQuery: "(min-width: 1440px)",
-      styles: css`
-        font-size: 2.4rem;
-      `,
-    },
-  ],
-}
+  }
+`
 
 const Banner = () => {
 
@@ -124,15 +101,13 @@ const Banner = () => {
     <BannerEstilizado>
       <BannerConteudo>
 
-        <Titulo
-          sub="Transformamos ideias em "
-          text="Obras Primas digitais"
-          $styles={TituloEstilos}
-          $subStyles={SubTitleStyle}
-        />
-        <Texto
+        <TituloStyled>
+          <Sub>Transformamos ideias em </Sub>
+          Obras Primas digitais
+        </TituloStyled>
+
+        <TextoStyled
           text="Somos um estúdio de especializado em criar websites de alto desempenho e soluções sob medida. Cada projeto é único, assim como nossos clientes."
-          $styles={TextoEstilos}
         />
 
       </BannerConteudo>

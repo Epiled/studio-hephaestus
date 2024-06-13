@@ -5,6 +5,7 @@ const PontuacoesStyled = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 1rem;
+  row-gap: 6rem;
   margin-top: 5rem;
   font-family: "Inter", sans-serif;
 `
