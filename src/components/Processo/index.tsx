@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Wrapper from "../Wrapper";
-import TituloSection from "../Titulo";
 import processoConceito from "../../assets/img/processo/conceito.svg";
 import processoMaterial from "../../assets/img/processo/material.svg";
 import processoMobile from "../../assets/img/processo/mobile.svg";
