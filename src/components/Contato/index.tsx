@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Titulo from "../Titulo";
 import Texto from "../Texto";
 import CirculoSVG from "../CirculoSVG";
@@ -180,7 +180,6 @@ const ButtonWithArrowStyled = styled(ButtonWithArrow)`
     color: var(--darker);
   }
 `
-
 
 const customGradiente = [
   { porcent: 0, color: '#fff' }

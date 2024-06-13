@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { useRef, useState } from "react";
 import StyledIcon from "../StyledIcon";
 import IconArrowRight from "../../assets/svg/arrowRight.svg?react";
@@ -23,8 +23,6 @@ const StyledIconCustom = styled(StyledIcon)<{iconColor?: string}>`
   right: -5rem;
   transform: translate(-50%, -50%);
   opacity: 0;
-
-  /* fill: ${(props) => (props.iconColor ? props.iconColor : `var(--lighter)`)}; */
   transition: transform .7s ease-in-out, fill .25s, opacity .5s;
   z-index: 1;
 

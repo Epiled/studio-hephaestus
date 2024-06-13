@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Wrapper from "../Wrapper";
 import TituloSection from "../Titulo";
-import imagem from "../../assets/imagem.png";
 import processoConceito from "../../assets/img/processo/conceito.svg";
 import processoMaterial from "../../assets/img/processo/material.svg";
 import processoMobile from "../../assets/img/processo/mobile.svg";
@@ -9,6 +8,7 @@ import processoForja from "../../assets/img/processo/forja.svg";
 import processoRefinamento from "../../assets/img/processo/refinamento.svg";
 import processoMundo from "../../assets/img/processo/mundo.svg";
 import CirculoSVG from "../CirculoSVG";
+import Titulo from "../Titulo";
 
 const ProjetosEstilizados = styled.section`
   margin-top: 15rem;
@@ -19,7 +19,6 @@ const Part = styled.div<{ $alt?: boolean }>`
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
-  /* margin-bottom: 2.5rem; */
   min-height: 30rem;
   padding: 2.5rem 0;
   position: relative;
@@ -49,12 +48,30 @@ const Box = styled.div`
   }
 `
 
-const Titulo = styled.h2`
+const TituloStyled = styled(Titulo)`
+display: block;
   font-size: 3.2rem;
   font-weight: bold;
 
   @media screen and (min-width: 1440px) {
     font-size: 3.9rem;
+  }
+`
+
+const TituloStyledAlt = styled(Titulo)`
+  display: block;
+  margin-bottom: 0;
+`
+
+const Sub = styled(TituloStyled).attrs({as: 'span'})`
+  font-size: 2.4rem;
+  font-weight: 400;
+  background-image: linear-gradient(90deg, var(--color-main) 0%, var(--color-complement) 80% 100%);
+  background-clip: text;
+  color: transparent;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 3.2rem;
   }
 `
 
@@ -107,9 +124,9 @@ const TextoRodape = styled.p`
 `
 
 interface IContainerSVG {
-  $largura?: string, 
-  $distancia?: string, 
-  $altura?: string, 
+  $largura?: string,
+  $distancia?: string,
+  $altura?: string,
   $top?: string,
   $zIndex?: number,
 }
@@ -120,7 +137,6 @@ const ContainerSVG = styled.div<IContainerSVG>`
   left: ${props => props.$distancia ? props.$distancia : '0'};
   width: ${props => props.$largura ? props.$largura : "100%"}; /* Largura do container SVG */
   height:  ${props => props.$altura ? props.$altura : "-webkit-fill-available"}; /* Altura do container SVG */
-  //border: 1px solid black; /* Apenas para visualização */
   z-index: ${props => props.$zIndex ? props.$zIndex : 0};
 `
 
@@ -147,12 +163,12 @@ const Processo = () => {
   return (
     <ProjetosEstilizados>
       <Wrapper>
-        <TituloSection
-          sub="Quer conhecer o processo?"
-          text="Assim que nasce uma obra prima."
-        // $styles={TituloEstilos}
-        // $subStyles={SubTitleStyle}
-        />
+        <TituloStyled>
+          <Sub>
+            Quer conhecer o processo?
+          </Sub>
+          Assim que nasce uma obra prima<Des>.</Des>
+        </TituloStyled>
 
         <Part $alt>
           <ContainerSVG>
@@ -188,7 +204,7 @@ const Processo = () => {
           </ContainerSVG> */}
 
           <Box>
-            <Titulo><Des>1.</Des> O Conceito</Titulo>
+            <TituloStyledAlt><Des>1.</Des> O Conceito</TituloStyledAlt>
             <Texto>
               Aqui teremos uma conversa para entender o seu negocio e sua necessidade.
             </Texto>
@@ -231,7 +247,7 @@ const Processo = () => {
           </ContainerSVG> */}
 
           <Box>
-            <Titulo><Des>2.</Des> Coleta de materia prima</Titulo>
+            <TituloStyledAlt><Des>2.</Des> Coleta de materia prima</TituloStyledAlt>
             <Texto>
               Neste ponto, nosso cliente ativamente diz, quais são os elementos que  agradão em uma obra e oque não pode faltar.
             </Texto>
@@ -273,7 +289,7 @@ const Processo = () => {
             </Vetor>
           </ContainerSVG>
           <Box>
-            <Titulo><Des>3.</Des> A concepção do molde</Titulo>
+            <TituloStyledAlt><Des>3.</Des> A concepção do molde</TituloStyledAlt>
             <Texto>
               Tendo o conceito e a materia prima em mãos, um model será concebido, um wireframe, ilustrado o corpo e aparecia da obra.
             </Texto>
@@ -316,7 +332,7 @@ const Processo = () => {
           </ContainerSVG>
 
           <Box>
-            <Titulo><Des>4.</Des> Para a forja</Titulo>
+            <TituloStyledAlt><Des>4.</Des> Para a forja</TituloStyledAlt>
             <Texto>
               Aqui começa a criação da obra, a partir do molde nossos mestres de forja comoçaram a dar forma e vida ao molde.
             </Texto>
@@ -359,7 +375,7 @@ const Processo = () => {
           </ContainerSVG>
 
           <Box>
-            <Titulo><Des>5.</Des> Refinamento</Titulo>
+            <TituloStyledAlt><Des>5.</Des> Refinamento</TituloStyledAlt>
             <Texto>
               A obra já saiu do molde, agora suas impuresas serão expurgadas pelo nosso trabalho de refinamento sobre medidas.
             </Texto>
@@ -405,7 +421,7 @@ const Processo = () => {
           </ContainerSVG>
 
           <Box>
-            <Titulo><Des>6.</Des> Para o Mundo</Titulo>
+            <TituloStyledAlt><Des>6.</Des> Para o Mundo</TituloStyledAlt>
             <Texto>
               Nossa obra está completa e agora ela será lançada ao mundo.
             </Texto>
